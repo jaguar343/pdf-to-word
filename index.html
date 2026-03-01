@@ -214,7 +214,7 @@
     }
     .btn-browse:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,255,71,0.25); }
 
-    #fileInput { display: none; }
+    #fileInput { display: block; }
 
     /* File selected state */
     #file-info {
@@ -423,8 +423,10 @@
       <p class="subtitle">Drop your PDF, get a perfectly formatted .docx file back.<br/>No sign-up. No watermarks. Files deleted immediately.</p>
     </div>
 
-    <!-- Drop Zone -->
-    <div id="dropzone">
+    <!-- Drop Zone - entire box is clickable -->
+    <div id="dropzone" style="position:relative; cursor:pointer;">
+      <input type="file" id="fileInput" accept=".pdf"
+        style="position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;cursor:pointer;z-index:5;" />
       <div class="drop-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
@@ -434,13 +436,9 @@
           <line x1="15" y1="15" x2="12" y2="12"/>
         </svg>
       </div>
-      <div class="drop-title">Drag & drop your PDF here</div>
-      <div class="drop-sub">Supports multi-page PDFs up to 50MB</div>
-      <div style="position:relative; display:inline-block; margin-top:24px; overflow:hidden; border-radius:100px;">
-        <button class="btn-browse" type="button" style="pointer-events:none;">Browse File</button>
-        <input type="file" id="fileInput" accept=".pdf"
-          style="position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;cursor:pointer;margin:0;padding:0;" />
-      </div>
+      <div class="drop-title">Click anywhere here to select a PDF</div>
+      <div class="drop-sub">Or drag & drop &nbsp;·&nbsp; Up to 50MB</div>
+      <div class="btn-browse" style="margin-top:24px; pointer-events:none; display:inline-block;">Browse File</div>
     </div>
 
     <!-- File info -->
